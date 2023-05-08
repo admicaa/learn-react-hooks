@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 
 const ToggleChallenge = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   return (
     <div>
-      <button className='btn' onClick={() => setShowAlert(!showAlert)}>
+      <button className="btn" onClick={() => setShowAlert(!showAlert)}>
         toggle alert
       </button>
       {showAlert && <Alert />}
@@ -14,6 +14,11 @@ const ToggleChallenge = () => {
 };
 
 const Alert = () => {
-  return <div className='alert alert-danger'>hello world</div>;
+  useEffect(() => {
+    const someFunc = () => {};
+    window.addEventListener("scroll", someFunc);
+    return () => window.removeEventListener("scroll", someFunc);
+  }, []);
+  return <div className="alert alert-danger">hello world</div>;
 };
 export default ToggleChallenge;
