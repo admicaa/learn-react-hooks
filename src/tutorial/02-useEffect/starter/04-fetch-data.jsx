@@ -9,13 +9,20 @@ const FetchData = () => {
   const [perPage, setPerPage] = useState(10);
   const [page, setPage] = useState(0);
   const [currentUser, setCurrentUser] = useState(null);
-
+  const [isError, setIsError] = useState(false);
   const fetchUsers = async () => {
     setUsers([]);
-    const response = await fetch(`${url}?per_page=${perPage}&since=${page}`);
-    const data = await response.json();
 
-    setUsers(data);
+    const response = await fetch(`${url}?per_page=${perPage}&since=${page}`);
+    if (response.ok) {
+      const data = await response.json();
+
+      setUsers(data);
+    } else {
+      console.log("here");
+      setIsError(true);
+    }
+    console.log(users);
   };
 
   const prevPage = () => {
@@ -36,6 +43,11 @@ const FetchData = () => {
   useEffect(() => {
     fetchUsers();
   }, [perPage, page]);
+
+  if (isError) {
+    return <h1>Something went wrong</h1>;
+  }
+  console.log({ users });
   return (
     <>
       {currentUser && (
