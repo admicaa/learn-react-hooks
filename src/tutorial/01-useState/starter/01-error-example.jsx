@@ -4,6 +4,10 @@ const ErrorExample = () => {
     count = count + 1;
     console.log({ count });
   };
+  const sayHello = () => {
+    console.log("Hello world");
+  };
+  sayHello();
   return (
     <div>
       <h2>{count}</h2>
