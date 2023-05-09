@@ -1,5 +1,5 @@
-import FirstComponent from './FirstComponent';
-import SecondComponent from './SecondComponent';
+import FirstComponent from "./FirstComponent";
+import SecondComponent from "./SecondComponent";
 
 const Example = () => {
   return (

@@ -1,9 +1,11 @@
-import Starter from "./tutorial/03-conditional-rendering/starter/06-toggle-challenge";
-import Final from "./tutorial/03-conditional-rendering/final/06-toggle-challenge";
+import { Test } from "./Test";
+import Starter from "./tutorial/05-leverage-javascript/starter/List";
+import Final from "./tutorial/05-leverage-javascript/final/List";
 function App() {
   return (
     <div className="container">
       <Starter />
+
       <Final />
     </div>
   );
